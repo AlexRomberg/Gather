@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 35 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-1173.96,0)">
+        <g id="Artboard3" transform="matrix(1.00227,0,0,1.00227,-3.57333,-0.616755)">
+            <rect x="1174.87" y="0.615" width="34.921" height="34.921" style="fill:none;"/>
+            <g id="Menu-Icon" serif:id="Menu Icon" transform="matrix(0.997738,0,0,0.997738,997.772,-2703.26)">
+                <path d="M205.5,2729L184.5,2729C183.672,2729 183,2728.33 183,2727.5C183,2726.67 183.672,2726 184.5,2726L205.5,2726C206.329,2726 207,2726.67 207,2727.5C207,2728.33 206.329,2729 205.5,2729Z" style="fill:white;"/>
+            </g>
+            <g id="Menu-Icon1" serif:id="Menu Icon" transform="matrix(6.10938e-17,0.997738,-0.997738,6.10938e-17,3913.66,-176.483)">
+                <path d="M205.5,2729L184.5,2729C183.672,2729 183,2728.33 183,2727.5C183,2726.67 183.672,2726 184.5,2726L205.5,2726C206.329,2726 207,2726.67 207,2727.5C207,2728.33 206.329,2729 205.5,2729Z" style="fill:white;"/>
+            </g>
+        </g>
+    </g>
+</svg>

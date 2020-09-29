@@ -1,0 +1,21 @@
+/* --- add button --- */
+
+#addBtn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: fixed;
+    background-color: var(--accent);
+    bottom: 30px;
+    right: 30px;
+    box-shadow: 0 0 15px 0 #0005;
+    padding: 20px;
+    transition: 0.2s;
+}
+
+#addBtn:hover {
+    filter: brightness(90%);
+}
+
+
+/* --- survey box --- */
