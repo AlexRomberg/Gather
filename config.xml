@@ -2,10 +2,11 @@
 <widget id="ch.arostudios.gather" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Gather</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        An app to vote for a place to eat lunch.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <icon src="www/img/logo.png" />
+    <author email="alexander.romberg@stud.kftg.ch">
+        Alexander Romberg, Noah Scherrer
     </author>
     <content src="index.html" />
     <access origin="*" />
