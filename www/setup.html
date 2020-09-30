@@ -53,15 +53,16 @@
         <h1>Gather</h1>
     </header>
 
-    <main>
+    <main id="mainId">
         <!-- name input -->
-        <div class="">
+        <div id="nameInput" class="">
             <h2>Name</h2>
             <input type="text" id="txtField">
+            <button type="button"id="btnNext">Weiter</button>
         </div>
 
         <!-- lunchtime input -->
-        <div class="">
+        <div id="lunchtimeInput" class="hidden">
             <h2>Mittagszeiten</h2>
             <table>
             <tr>
@@ -101,9 +102,8 @@
                 <td><input type="checkbox" id="ckBox"></td>
             </tr>
         </table>
-           
+        <button type="button"id="btnFinish">Fertig</button>
         </div>
-        <button type="button"id="btnNext">Weiter</button>
     </main>
     <script src="cordova.js"></script>
     <script src="js/setup.js"></script>

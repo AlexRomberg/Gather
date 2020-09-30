@@ -5,7 +5,7 @@
 h2{
     margin-bottom: 10px;
 }
-#btnNext{
+#btnNext, #btnFinish{
     height: calc(100vh / 15);
     width: calc(100% - 60px);  
     position: fixed;
@@ -38,8 +38,14 @@ table{
 
 main{
     max-height: calc(100vh - (100vh / 15 + 50px) - 80px);
-    overflow-y:scroll;
+    overflow-y: scroll;
     -webkit-box-shadow: inset 0px -56px 20px -59px rgba(0,0,0,0.75);
     -moz-box-shadow: inset 0px -56px 20px -59px rgba(0,0,0,0.75);
     box-shadow: inset 0px -56px 20px -59px rgba(0,0,0,0.75);
+}
+
+.no-scroll{
+    max-height: none;
+    overflow-y: visible;
+    box-shadow: none;
 }
