@@ -1,15 +1,15 @@
 /* --- add button --- */
 
 #addBtn {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     position: fixed;
     background-color: var(--accent);
     bottom: 30px;
     right: 30px;
     box-shadow: 0 0 15px 0 #0005;
-    padding: 20px;
+    padding: 15px;
     transition: 0.2s;
 }
 
@@ -19,3 +19,42 @@
 
 
 /* --- survey box --- */
+
+#survey-box {
+    background-color: #0002;
+    border-radius: 3px;
+}
+
+#survey-box h2 {
+    padding: 5px 10px;
+    background-color: #0001;
+}
+
+#survey-box .option {
+    padding: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#survey-box .name {
+    margin-left: 5px;
+}
+
+.button-box {
+    background-color: #0002;
+    margin-top: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.button-box button {
+    width: 50%;
+    border: 0;
+    padding: 10px;
+}
+
+.button-box button:hover {
+    background-color: #fff8;
+}
