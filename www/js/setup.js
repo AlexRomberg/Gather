@@ -25,23 +25,31 @@ let buttonNext = document.getElementById("btnNext");
 let buttonFinish = document.getElementById("btnFinish");
 let main = document.getElementsByTagName("main")[0];
 let name = document.getElementById("nameInput");
-let lunch =  document.getElementById("lunchtimeInput");
+let lunch = document.getElementById("lunchtimeInput");
 
 // eventListener
 buttonNext.addEventListener('click', toggleClasses);
 buttonFinish.addEventListener('click', goToIndex);
 
+// prepare for setup
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('settings') != null) {
+    name.classList.remove('hidden');
+    lunch.classList.remove('hidden');
+}
+
 // functions
-function toggleClasses(){
+function toggleClasses() {
     name.classList.toggle('hidden') && lunch.classList.toggle('hidden');
 }
-function goToIndex(){
+
+function goToIndex() {
     window.location.replace("index.html");
 }
 
 // (un)ready for options menu
-if (name.classList.contains('hidden') || lunch.classList.contains('hidden')){
+if (name.classList.contains('hidden') || lunch.classList.contains('hidden')) {
     main.classList.add('no-scroll');
-}else{
+} else {
     main.classList.remove('no-scroll');
 }
