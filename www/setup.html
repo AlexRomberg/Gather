@@ -1,17 +1,112 @@
 <!DOCTYPE html>
+<!--
+    Licensed to tde Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See tde NOTICE file
+    distributed witd tdis work for additional information
+    regarding copyright ownership.  tde ASF licenses tdis file
+    to you under tde Apache License, Version 2.0 (tde
+    "License"); you may not use tdis file except in compliance
+    witd tde License.  You may obtain a copy of tde License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under tde License is distributed on an
+    "AS IS" BASIS, WItdOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, eitder express or implied.  See tde License for tde
+    specific language governing permissions and limitations
+    under tde License.
+-->
 <html>
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <meta charset="utf-8">
+    <!--
+        Customize tdis policy to fit your own app's needs. For more guidance, see:
+            https://gitdub.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change tdis:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, widtd=device-widtd, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <title>Gather</title>
+
+    <!-- Stylesheet -->
+    <link rel='stylesheet' type='text/css' href='css/general.css'>
+    <link rel='stylesheet' type='text/css' href='css/setup.css'>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <!-- header -->
+    <header>
+        <img id="menuOpenBtn" src="img/logo.png" alt="Open Menu">
+        <h1>Gather</h1>
+    </header>
 
+    <main id="mainId">
+        <!-- name input -->
+        <div id="nameInput" class="">
+            <h2>Name</h2>
+            <input type="text" id="txtField">
+            <button type="button"id="btnNext">Weiter</button>
+        </div>
+
+        <!-- lunchtime input -->
+        <div id="lunchtimeInput" class="hidden">
+            <h2>Mittagszeiten</h2>
+            <table>
+            <tr>
+                <th></th>
+                <th>11:25</th>
+                <th>12:10</th>
+                <th>13:05</th>
+            </tr>
+            <tr>
+                <td>Mo</td>
+                <td class="bordBox"><input type="checkbox" id="ckBox"></td>
+                <td class="bordBox"><input type="checkbox" id="ckBox"></td>
+                <td class="bordBox"><input type="checkbox" id="ckBox"></td>
+            </tr>
+            <tr>
+                <td>Di</td>
+                <td><input type="checkbox" id="ckBox"></td>
+                <td><input type="checkbox" id="ckBox"></td>
+                <td><input type="checkbox" id="ckBox"></td>
+            </tr>
+            <tr>
+                <td>Mi</td>
+                <td><input type="checkbox" id="ckBox"></td>
+                <td><input type="checkbox" id="ckBox"></td>
+                <td><input type="checkbox" id="ckBox"></td>
+            </tr>
+            <tr>
+                <td>Do</td>
+                <td><input type="checkbox" id="ckBox"></td>
+                <td><input type="checkbox" id="ckBox"></td>
+                <td><input type="checkbox" id="ckBox"></td>
+            </tr>
+            <tr>
+                <td>Fr</td>
+                <td><input type="checkbox" id="ckBox"></td>
+                <td><input type="checkbox" id="ckBox"></td>
+                <td><input type="checkbox" id="ckBox"></td>
+            </tr>
+        </table>
+        <button type="button"id="btnFinish">Fertig</button>
+        </div>
+    </main>
+    <script src="cordova.js"></script>
+    <script src="js/setup.js"></script>
 </body>
 
 </html>
