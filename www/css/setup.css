@@ -1,0 +1,19 @@
+.hidden {
+    display: none;
+}
+
+h2{
+
+}
+#btnNext{
+    height: calc(100vh/15);
+    width: calc(100% - 60px);  
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+}
+
+#txtField{
+    height: calc(100vh/15);
+    width: 100%;
+}

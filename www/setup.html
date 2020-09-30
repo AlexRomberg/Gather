@@ -30,7 +30,8 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -48,12 +49,24 @@
 <body>
     <!-- header -->
     <header>
-        <img id="menuOpenBtn" src="res/icons/menu-open.svg" alt="Open Menu">
+        <img id="menuOpenBtn" src="img/logo.png" alt="Open Menu">
         <h1>Gather</h1>
     </header>
 
     <main>
+        <!-- name input -->
+        <div class="">
+            <h2>Name</h2>
+            <input type="text" id="txtField">
+            <input type="button" id="btnNext" name="Weiter">
+        </div>
 
+        <!-- lunchtime input -->
+        <div class="hidden">
+            <h2>Mittagszeiten</h2>
+            <input type="text">
+            <input type="button" id="btnNext" name="Weiter">
+        </div>
     </main>
     <script src="cordova.js"></script>
     <script src="js/setup.js"></script>
