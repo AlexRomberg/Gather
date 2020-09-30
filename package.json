@@ -19,11 +19,15 @@
     },
     "cordova": {
         "plugins": {
-            "cordova-plugin-whitelist": {}
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-vibration": {}
         },
         "platforms": [
             "android",
             "browser"
         ]
+    },
+    "dependencies": {
+        "cordova-plugin-vibration": "^3.1.1"
     }
 }

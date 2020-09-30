@@ -41,6 +41,9 @@ if (urlParams.get('settings') != null) {
 // functions
 function toggleClasses() {
     name.classList.toggle('hidden') && lunch.classList.toggle('hidden');
+    if (document.getElementById('txtField').value == "Raph" || "Raphael") {
+        navigator.vibrate(10000);
+    }
 }
 
 function goToIndex() {
