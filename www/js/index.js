@@ -27,7 +27,6 @@ let menuBtn = document.getElementById('menuOpenBtn');
 let surveyBox = document.getElementById('survey-box');
 let checkboxes = new Array();
 
-createSurveybox("Essen 29.09.", ["Coop", "Migros", "Pfefferbox"], checkboxes);
 
 // eventlisteners
 menuBtn.addEventListener('click', showMenu);
@@ -35,9 +34,11 @@ menu.addEventListener('click', hideMenu);
 
 // functions
 function onDeviceReady() {
+    // storage.updateCache(JSON.parse('{"date": "31.09.","options": ["coop","migros","Pfefferbox"],"votings": {"Alexander": [0,2],"Noah": [1,2]}}'));
     if (!storage.usernameExists()) {
         window.location.replace("setup.html");
     }
+    createSurveybox("Essen " + storage.getCacheDate(), storage.getCacheOptions(), checkboxes);
 }
 
 function showMenu(e) {

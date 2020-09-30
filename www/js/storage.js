@@ -23,6 +23,21 @@ function CStorage() {
     this.getNoontimes = function() {
         return JSON.parse(this.storage.getItem('noontimes'));
     };
+
+    // offline cache
+    this.updateCache = function(votingData) {
+        this.storage.setItem('cache', JSON.stringify(votingData));
+    };
+
+    this.getCacheDate = function() {
+        let data = JSON.parse(this.storage.getItem('cache'));
+        return data.date;
+    };
+
+    this.getCacheOptions = function() {
+        let data = JSON.parse(this.storage.getItem('cache'));
+        return data.options;
+    };
 };
 
 let storage = new CStorage();
