@@ -26,7 +26,6 @@ let menu = document.getElementById('menu');
 let menuBtn = document.getElementById('menuOpenBtn');
 let surveyBox = document.getElementById('survey-box');
 let checkboxes = new Array();
-let storage = new CStorage();
 
 createSurveybox("Essen 29.09.", ["Coop", "Migros", "Pfefferbox"], checkboxes);
 
@@ -43,7 +42,6 @@ function onDeviceReady() {
 
 function showMenu(e) {
     menu.classList.remove('hidden');
-    alert(storage.getUsername());
 }
 
 function hideMenu(e) {
