@@ -26,6 +26,7 @@ let menu = document.getElementById('menu');
 let menuBtn = document.getElementById('menuOpenBtn');
 let surveyBox = document.getElementById('survey-box');
 let checkboxes = new Array();
+let storage = new CStorage();
 
 createSurveybox("Essen 29.09.", ["Coop", "Migros", "Pfefferbox"], checkboxes);
 
@@ -35,11 +36,14 @@ menu.addEventListener('click', hideMenu);
 
 // functions
 function onDeviceReady() {
-    //todo: load data
+    if (!storage.usernameExists()) {
+        window.location.replace("setup.html");
+    }
 }
 
 function showMenu(e) {
     menu.classList.remove('hidden');
+    alert(storage.getUsername());
 }
 
 function hideMenu(e) {
