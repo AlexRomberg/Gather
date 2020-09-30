@@ -36,6 +36,12 @@ menu.addEventListener('click', hideMenu);
 // functions
 function onDeviceReady() {
     //todo: load data
+
+    cordova.plugins.notification.local.schedule({
+        title: 'Hey there',
+        text: 'This app can notify you :)',
+        foreground: true
+    });
 }
 
 function showMenu(e) {
