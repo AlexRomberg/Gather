@@ -19,9 +19,29 @@
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
-document.addEventListener('deviceready', onDeviceReady, false);
 
-function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
-    
+// variables
+let buttonNext = document.getElementById("btnNext");
+let buttonFinish = document.getElementById("btnFinish");
+let main = document.getElementsByTagName("main")[0];
+let name = document.getElementById("nameInput");
+let lunch =  document.getElementById("lunchtimeInput");
+
+// eventListener
+buttonNext.addEventListener('click', toggleClasses);
+buttonFinish.addEventListener('click', goToIndex);
+
+// functions
+function toggleClasses(){
+    name.classList.toggle('hidden') && lunch.classList.toggle('hidden');
+}
+function goToIndex(){
+    window.location.replace("index.html");
+}
+
+// (un)ready for options menu
+if (name.classList.contains('hidden') || lunch.classList.contains('hidden')){
+    main.classList.add('no-scroll');
+}else{
+    main.classList.remove('no-scroll');
 }
