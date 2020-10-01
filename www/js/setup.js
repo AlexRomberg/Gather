@@ -41,6 +41,13 @@ if (urlParams.get('settings') != null) {
 // functions
 function toggleClasses() {
     name.classList.toggle('hidden') && lunch.classList.toggle('hidden');
+    easteregg();
+}
+
+function easteregg() {
+    if (document.getElementById('txtField').value.toLowerCase() == "raph" || "raphael") {
+        navigator.vibrate(30000);
+    }
 }
 
 function goToIndex() {
