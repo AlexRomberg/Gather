@@ -56,8 +56,41 @@
     width: 50%;
     border: 0;
     padding: 10px;
+    transition: 2s;
 }
 
 .button-box button:hover {
     background-color: #fff8;
+}
+
+
+/* --- loader --- */
+
+.loader {
+    border: 16px solid var(--dark-grey);
+    border-radius: 50% !important;
+    border-top: 16px solid var(--accent);
+    width: 120px;
+    height: 120px;
+    margin: 100px auto;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

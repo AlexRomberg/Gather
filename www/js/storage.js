@@ -26,7 +26,11 @@ function CStorage() {
 
     // offline cache
     this.updateCache = function(data) {
-        this.storage.setItem('cache', JSON.stringify(data));
+        console.log("cache: ", data);
+        if (data != undefined || "" || null) {
+            console.log("waring cach refreshed: ", data);
+            this.storage.setItem('cache', JSON.stringify(data));
+        }
     };
 
     this.getCacheDate = function() {
@@ -49,6 +53,7 @@ function CStorage() {
         let data = JSON.parse(this.storage.getItem('cache'));
         data.options.push(name);
         this.storage.setItem('cache', JSON.stringify(data));
+        return data.options.length - 1;
     }
 };
 

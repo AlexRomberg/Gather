@@ -39,39 +39,62 @@ resultBtn.addEventListener('click', openResultpage);
 voteBtn.addEventListener('click', vote);
 
 // functions
+
+// loads cache and redirects to setup-page if username is unset
 function onDeviceReady() {
-    // storage.updateCache(JSON.parse('{"date": "31.09.","options": ["coop","migros","Pfefferbox"],"votings": {"Alexander": [0,2],"Noah": [1,2]}}'));
     if (!storage.usernameExists()) {
         window.location.replace("setup.html");
     }
-    storage.updateCache(className.functionName());
-    if (storage.getCacheDate() < )
-        createSurveybox("Essen " + storage.getCacheDate(), storage.getCacheOptions());
+    storageService.readDataBase()
+        .then((data) => {
+            storage.updateCache(data);
+            createSurveybox("Essen " + storage.getCacheDate(), storage.getCacheOptions());
+            showVote();
+        })
+        // loads cached infos on error
+        .catch((error) => {
+            console.log(error);
+            createSurveybox("Essen " + storage.getCacheDate(), storage.getCacheOptions());
+            showVote();
+        });
 }
 
+// displays a repetitive notification
 function showNotification() {
     cordova.plugins.notification.local.schedule({
-        title: 'Hey there',
-        text: 'This app can notify you :)',
+        title: 'Gather',
+        text: 'Please vote for a meal',
+        trigger: {
+            every: {
+                hour: 6
+            }
+        },
+        smallIcon: 'img/logo.png',
         foreground: true
     });
 }
 
+// displays the Menu on click
 function showMenu(e) {
     menu.classList.remove('hidden');
 }
 
+// hides the Menu on click
 function hideMenu(e) {
     menu.classList.add('hidden');
 }
 
+// generates box containing checkboxes and title
 function createSurveybox(title, names) {
     let h2 = document.createElement("h2");
     h2.innerText = title;
+    surveyBox.innerHTML = "";
+    surveyBox.classList.remove("loader");
     surveyBox.appendChild(h2);
     addCheckboxes(names);
 }
 
+// generates checkboxes from list
 function addCheckboxes(names) {
     for (let i = 0; i < names.length; i++) {
         let div = document.createElement("div");
@@ -96,25 +119,52 @@ function addCheckboxes(names) {
     }
 }
 
+// handles input of new location
 function addLocation() {
     var newLocationName = prompt("Wie heisst der neue Ort", "");
     if (!(newLocationName == null || "")) {
         addCheckboxes([newLocationName]);
-        storage.addLocation(newLocationName);
-        className.functionName(newLocationName);
+        let id = storage.addLocation(newLocationName);
+        storageService.addNewPlace(id, newLocationName);
     }
 }
 
+// redirects to result-page
 function openResultpage() {
     window.location.href = "result.html";
 }
 
+// handles voting and sends it to server; shows visual feedback
 function vote() {
     let vote = new Array();
     for (let i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
-            Array.push(i);
+            vote.push(i);
         }
     }
-    className.functionName(storage.getUsername(), vote);
+    storageService.registerVoting(storage.getUsername(), vote);
+    resultBtn.style.display = "block";
+    voteBtn.style.transition = "0s";
+    voteBtn.style.width = "50%";
+    voteBtn.style.backgroundColor = "var(--positive-background)"
+    setTimeout(hideGreen, 1000);
+}
+
+// hides visual feedback
+function hideGreen() {
+    voteBtn.style.transition = "2s";
+    voteBtn.style.backgroundColor = "#f0f0f0";
+}
+
+// loads votings and checks boxes
+function showVote() {
+    if (storage.getUsername() in storage.getCacheVotes()) {
+        let persVotes = JSON.parse(storage.getCacheVotes()[storage.getUsername()]);
+        persVotes.forEach(id => {
+            checkboxes[id].checked = true;
+        });
+    } else {
+        resultBtn.style.display = "none";
+        voteBtn.style.width = "100%";
+    }
 }
