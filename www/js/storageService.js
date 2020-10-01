@@ -1,4 +1,4 @@
-var storageService = (function() {
+var storageService = (function () {
 
     let dbObj; // connection object
 
@@ -14,7 +14,7 @@ var storageService = (function() {
     };
 
 
-    const connectToFirebase = function() {
+    const connectToFirebase = function () {
         let defaultProject = firebase.initializeApp(firebaseConfig);
 
         console.log('firebase-connection', defaultProject);
@@ -22,25 +22,25 @@ var storageService = (function() {
         dbObj = firebase.database();
     };
 
-    const writeItem = function(path, data) {
+    const writeItem = function (path, data) {
         let ref = dbObj.ref(path);
         ref.set(data);
 
         console.log("Item added to firebase: " + path + "/" + data.id + ", " + data);
     };
 
-    const removePath = function(path) {
+    const removePath = function (path) {
         let ref = dbObj.ref(path);
         ref.remove();
 
         console.log("path deleted: " + path);
     };
 
-    const mapSnapshotToObject = function(snapshot) {
+    const mapSnapshotToObject = function (snapshot) {
         // default response if branch is empty
         var item = {};
 
-        snapshot.forEach(function(childSnapshot) {
+        snapshot.forEach(function (childSnapshot) {
             var childKey = childSnapshot.key;
             var childData = childSnapshot.val();
 
@@ -51,14 +51,14 @@ var storageService = (function() {
         return item;
     };
 
-    const readItems = function(path) { // returns a Promise
+    const readItems = function (path) { // returns a Promise
         let ref = dbObj.ref(path);
         let res = ref.once('value').then(mapSnapshotToObject);
         return res;
     };
 
 
-    const subscribeItems = function(path, changeCallback) {
+    const subscribeItems = function (path, changeCallback) {
         let ref = dbObj.ref(path);
 
         ref.on('value', (snapshot) => {
@@ -76,6 +76,15 @@ var storageService = (function() {
         console.log("data received", items);
     });
 
+
+    // Update date
+    
+    writeItem("/date", date);
+
+    // Add place to options
+    firebaseAdmin.database().ref("/options").push().set("place");
+
+
     // public
     return {
         writeItem,
@@ -85,13 +94,3 @@ var storageService = (function() {
     };
 })();
 
-const firebaseAdmin = require('firebase-admin')
-
-firebaseAdmin.initializeApp();
-var storage = firebaseAdmin.database().ref('gather-1b245')
-
-
-writeItem("/bla", {
-    "options": [],
-    "votings": {"Noah"}
-}
