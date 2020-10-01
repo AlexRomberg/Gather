@@ -41,6 +41,14 @@ function onDeviceReady() {
     createSurveybox("Essen " + storage.getCacheDate(), storage.getCacheOptions(), checkboxes);
 }
 
+function showNotification() {
+    cordova.plugins.notification.local.schedule({
+        title: 'Hey there',
+        text: 'This app can notify you :)',
+        foreground: true
+    });
+}
+
 function showMenu(e) {
     menu.classList.remove('hidden');
 }

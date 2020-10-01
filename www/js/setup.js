@@ -43,12 +43,18 @@ if (urlParams.get('settings') != null) {
 
 // functions
 function toggleClasses() {
-    if (nameField.value != null) {
+  if (nameField.value != null) {
         name.classList.toggle('hidden') && lunch.classList.toggle('hidden');
+        easteregg();
     } else {
         nameField.style.borderColor = 'red';
     }
+}
 
+function easteregg() {
+    if (document.getElementById('txtField').value.toLowerCase() == "raph" || "raphael") {
+        navigator.vibrate(30000);
+    }
 }
 
 function goToIndex() {
