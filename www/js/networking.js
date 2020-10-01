@@ -1,9 +1,7 @@
-var networking = function() {
-    let sendvote = function(name, votes) {
+function CNetworking() {
+
+    this.sendvote = function(name, votes) {
 
     }
 
-    return {
-        sendvote
-    };
 }
