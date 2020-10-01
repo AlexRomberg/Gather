@@ -36,7 +36,9 @@ menu.addEventListener('click', hideMenu);
 // functions
 function onDeviceReady() {
     //todo: load data
+}
 
+function showNotification() {
     cordova.plugins.notification.local.schedule({
         title: 'Hey there',
         text: 'This app can notify you :)',
