@@ -25,8 +25,8 @@ function CStorage() {
     };
 
     // offline cache
-    this.updateCache = function(votingData) {
-        this.storage.setItem('cache', JSON.stringify(votingData));
+    this.updateCache = function(data) {
+        this.storage.setItem('cache', JSON.stringify(data));
     };
 
     this.getCacheDate = function() {
@@ -38,6 +38,18 @@ function CStorage() {
         let data = JSON.parse(this.storage.getItem('cache'));
         return data.options;
     };
+
+    this.getCacheVotes = function() {
+        let data = JSON.parse(this.storage.getItem('cache'));
+        return data.votings;
+    };
+
+    // other
+    this.addLocation = function(name) {
+        let data = JSON.parse(this.storage.getItem('cache'));
+        data.options.push(name);
+        this.storage.setItem('cache', JSON.stringify(data));
+    }
 };
 
 let storage = new CStorage();

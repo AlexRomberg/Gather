@@ -24,6 +24,8 @@
 document.addEventListener('deviceready', onDeviceReady, false);
 let menu = document.getElementById('menu');
 let menuBtn = document.getElementById('menuOpenBtn');
+let addBtn = document.getElementById('addBtn');
+let resultBtn = document.getElementById('resultBtn');
 let surveyBox = document.getElementById('survey-box');
 let checkboxes = new Array();
 
@@ -31,6 +33,8 @@ let checkboxes = new Array();
 // eventlisteners
 menuBtn.addEventListener('click', showMenu);
 menu.addEventListener('click', hideMenu);
+addBtn.addEventListener('click', addLocation);
+resultBtn.addEventListener('click', openResultpage);
 
 // functions
 function onDeviceReady() {
@@ -38,7 +42,7 @@ function onDeviceReady() {
     if (!storage.usernameExists()) {
         window.location.replace("setup.html");
     }
-    createSurveybox("Essen " + storage.getCacheDate(), storage.getCacheOptions(), checkboxes);
+    createSurveybox("Essen " + storage.getCacheDate(), storage.getCacheOptions());
 }
 
 function showNotification() {
@@ -57,14 +61,14 @@ function hideMenu(e) {
     menu.classList.add('hidden');
 }
 
-function createSurveybox(title, names, checkboxes) {
+function createSurveybox(title, names) {
     let h2 = document.createElement("h2");
     h2.innerText = title;
     surveyBox.appendChild(h2);
-    addCheckboxes(names, checkboxes);
+    addCheckboxes(names);
 }
 
-function addCheckboxes(names, checkboxes) {
+function addCheckboxes(names) {
     for (let i = 0; i < names.length; i++) {
         let div = document.createElement("div");
         div.classList.add("option");
@@ -86,6 +90,18 @@ function addCheckboxes(names, checkboxes) {
         div.appendChild(p);
         surveyBox.appendChild(div);
     }
+}
+
+function addLocation() {
+    var newLocationName = prompt("Wie heisst der neue Ort", "");
+    if (!(newLocationName == null || "")) {
+        addCheckboxes([newLocationName]);
+        storage.addLocation(newLocationName);
+    }
+}
+
+function openResultpage() {
+    window.location.href = "result.html";
 }
 
 function boxChanged(e) {

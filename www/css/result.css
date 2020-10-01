@@ -1,0 +1,40 @@
+table {
+    border-collapse: collapse;
+}
+
+td,
+th {
+    border: 1px solid var(--dark-grey);
+    text-align: left;
+    padding: 8px;
+}
+
+.positive {
+    background-color: var(--positive-background);
+    text-align: center;
+}
+
+.positive::before {
+    content: "✔";
+    color: var(--positive-front);
+}
+
+.neutral {
+    background-color: var(--neutral-background);
+    text-align: center;
+}
+
+.neutral::before {
+    content: "-";
+    color: var(--neutral-front);
+}
+
+.negative {
+    background-color: var(--negative-background);
+    text-align: center;
+}
+
+.negative::before {
+    content: "✖";
+    color: var(--negative-front);
+}

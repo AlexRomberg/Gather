@@ -2,10 +2,10 @@
     /* --- global colors ---*/
     --accent: #FF9900;
     --positive-background: #B4FFB1;
-    --neutral-background: #31FF2A;
-    --negative-background: #F6FFB1;
-    --positive-front: #F8A800;
-    --neutral-front: #FFB1B1;
+    --neutral-background: #F6FFB1;
+    --negative-background: #FFB1B1;
+    --positive-front: #31FF2A;
+    --neutral-front: #F8A800;
     --negative-front: #FF342A;
     --dark-grey: #414C5B;
     --light-grey: #D8D8D8;
@@ -79,7 +79,9 @@ nav a {
     box-shadow: none;
 }
 
+
 /* --- nav background --- */
+
 nav:after {
     position: fixed;
     content: " ";
@@ -90,6 +92,7 @@ nav:after {
     left: 0;
     z-index: -2;
 }
+
 
 /* --- main --- */
 
