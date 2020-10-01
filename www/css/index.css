@@ -1,15 +1,15 @@
 /* --- add button --- */
 
 #addBtn {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     position: fixed;
     background-color: var(--accent);
     bottom: 30px;
     right: 30px;
     box-shadow: 0 0 15px 0 #0005;
-    padding: 20px;
+    padding: 15px;
     transition: 0.2s;
 }
 
@@ -19,3 +19,78 @@
 
 
 /* --- survey box --- */
+
+#survey-box {
+    background-color: #0002;
+    border-radius: 3px;
+}
+
+#survey-box h2 {
+    padding: 5px 10px;
+    background-color: #0001;
+}
+
+#survey-box .option {
+    padding: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#survey-box .name {
+    margin-left: 5px;
+}
+
+
+/* --- button-box --- */
+
+.button-box {
+    background-color: #0002;
+    margin-top: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.button-box button {
+    width: 50%;
+    border: 0;
+    padding: 10px;
+    transition: 2s;
+}
+
+.button-box button:hover {
+    background-color: #fff8;
+}
+
+
+/* --- loader --- */
+
+.loader {
+    border: 16px solid var(--dark-grey);
+    border-radius: 50% !important;
+    border-top: 16px solid var(--accent);
+    width: 120px;
+    height: 120px;
+    margin: 100px auto;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

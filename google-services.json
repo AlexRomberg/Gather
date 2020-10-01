@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "699789112029",
+    "firebase_url": "https://gather-1b245.firebaseio.com",
+    "project_id": "gather-1b245",
+    "storage_bucket": "gather-1b245.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699789112029:android:483e6797d7b19460e3a134",
+        "android_client_info": {
+          "package_name": "ch.arostudios.gather"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699789112029-pu4ktlkcsquf1djc0r37b2vpv0f58o65.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVAUulwNi2IcolbtTeOsJD6qVvAgeBtpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699789112029-pu4ktlkcsquf1djc0r37b2vpv0f58o65.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
