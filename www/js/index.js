@@ -26,6 +26,7 @@ let menu = document.getElementById('menu');
 let menuBtn = document.getElementById('menuOpenBtn');
 let addBtn = document.getElementById('addBtn');
 let resultBtn = document.getElementById('resultBtn');
+let voteBtn = document.getElementById('voteBtn');
 let surveyBox = document.getElementById('survey-box');
 let checkboxes = new Array();
 
@@ -35,6 +36,7 @@ menuBtn.addEventListener('click', showMenu);
 menu.addEventListener('click', hideMenu);
 addBtn.addEventListener('click', addLocation);
 resultBtn.addEventListener('click', openResultpage);
+voteBtn.addEventListener('click', vote);
 
 // functions
 function onDeviceReady() {
@@ -42,7 +44,9 @@ function onDeviceReady() {
     if (!storage.usernameExists()) {
         window.location.replace("setup.html");
     }
-    createSurveybox("Essen " + storage.getCacheDate(), storage.getCacheOptions());
+    storage.updateCache(className.functionName());
+    if (storage.getCacheDate() < )
+        createSurveybox("Essen " + storage.getCacheDate(), storage.getCacheOptions());
 }
 
 function showNotification() {
@@ -97,6 +101,7 @@ function addLocation() {
     if (!(newLocationName == null || "")) {
         addCheckboxes([newLocationName]);
         storage.addLocation(newLocationName);
+        className.functionName(newLocationName);
     }
 }
 
@@ -104,6 +109,12 @@ function openResultpage() {
     window.location.href = "result.html";
 }
 
-function boxChanged(e) {
-    // todo: update vote on
+function vote() {
+    let vote = new Array();
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            Array.push(i);
+        }
+    }
+    className.functionName(storage.getUsername(), vote);
 }
