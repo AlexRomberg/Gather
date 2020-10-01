@@ -30,8 +30,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change tdis:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, widtd=device-widtd, viewport-fit=cover">
@@ -58,54 +57,55 @@
         <div id="nameInput" class="">
             <h2>Name</h2>
             <input type="text" id="txtField">
-            <button type="button"id="btnNext">Weiter</button>
+            <button type="button" id="btnNext">Weiter</button>
         </div>
 
         <!-- lunchtime input -->
         <div id="lunchtimeInput" class="hidden">
             <h2>Mittagszeiten</h2>
             <table>
-            <tr>
-                <th></th>
-                <th>11:25</th>
-                <th>12:10</th>
-                <th>13:05</th>
-            </tr>
-            <tr>
-                <td>Mo</td>
-                <td class="bordBox"><input type="checkbox" id="ckBox"></td>
-                <td class="bordBox"><input type="checkbox" id="ckBox"></td>
-                <td class="bordBox"><input type="checkbox" id="ckBox"></td>
-            </tr>
-            <tr>
-                <td>Di</td>
-                <td><input type="checkbox" id="ckBox"></td>
-                <td><input type="checkbox" id="ckBox"></td>
-                <td><input type="checkbox" id="ckBox"></td>
-            </tr>
-            <tr>
-                <td>Mi</td>
-                <td><input type="checkbox" id="ckBox"></td>
-                <td><input type="checkbox" id="ckBox"></td>
-                <td><input type="checkbox" id="ckBox"></td>
-            </tr>
-            <tr>
-                <td>Do</td>
-                <td><input type="checkbox" id="ckBox"></td>
-                <td><input type="checkbox" id="ckBox"></td>
-                <td><input type="checkbox" id="ckBox"></td>
-            </tr>
-            <tr>
-                <td>Fr</td>
-                <td><input type="checkbox" id="ckBox"></td>
-                <td><input type="checkbox" id="ckBox"></td>
-                <td><input type="checkbox" id="ckBox"></td>
-            </tr>
-        </table>
-        <button type="button"id="btnFinish">Fertig</button>
+                <tr>
+                    <th></th>
+                    <th>11:25</th>
+                    <th>12:10</th>
+                    <th>13:05</th>
+                </tr>
+                <tr>
+                    <td>Mo</td>
+                    <td class="bordBox"><input type="checkbox" class="ckBox"></td>
+                    <td class="bordBox"><input type="checkbox" class="ckBox"></td>
+                    <td class="bordBox"><input type="checkbox" class="ckBox"></td>
+                </tr>
+                <tr>
+                    <td>Di</td>
+                    <td class="bordBox"><input type="checkbox" class="ckBox"></td>
+                    <td class="bordBox"><input type="checkbox" class="ckBox"></td>
+                    <td class="bordBox"><input type="checkbox" class="ckBox"></td>
+                </tr>
+                <tr>
+                    <td>Mi</td>
+                    <td class="bordBox"><input type="checkbox" class="ckBox"></td>
+                    <td class="bordBox"><input type="checkbox" class="ckBox"></td>
+                    <td class="bordBox"><input type="checkbox" class="ckBox"></td>
+                </tr>
+                <tr>
+                    <td>Do</td>
+                    <td class="bordBox"><input type="checkbox" class="ckBox"></td>
+                    <td class="bordBox"><input type="checkbox" class="ckBox"></td>
+                    <td class="bordBox"><input type="checkbox" class="ckBox"></td>
+                </tr>
+                <tr>
+                    <td>Fr</td>
+                    <td class="bordBox"><input type="checkbox" class="ckBox"></td>
+                    <td class="bordBox"><input type="checkbox" class="ckBox"></td>
+                    <td class="bordBox"><input type="checkbox" class="ckBox"></td>
+                </tr>
+            </table>
+            <button type="button" id="btnFinish">Fertig</button>
         </div>
     </main>
     <script src="cordova.js"></script>
+    <script src="js/storage.js"></script>
     <script src="js/setup.js"></script>
 </body>
 
