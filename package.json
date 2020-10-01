@@ -23,11 +23,15 @@
     "cordova": {
         "plugins": {
             "cordova-plugin-whitelist": {},
-            "cordova-plugin-local-notification": {}
+            "cordova-plugin-local-notification": {},
+            "cordova-plugin-vibration": {}
         },
         "platforms": [
             "android",
             "browser"
         ]
+    },
+    "dependencies": {
+        "cordova-plugin-vibration": "^3.1.1"
     }
 }
