@@ -26,6 +26,7 @@ let buttonFinish = document.getElementById("btnFinish");
 let main = document.getElementsByTagName("main")[0];
 let name = document.getElementById("nameInput");
 let lunch = document.getElementById("lunchtimeInput");
+let nameField = document.getElementById('txtField');
 
 // eventListener
 buttonNext.addEventListener('click', toggleClasses);
@@ -36,12 +37,18 @@ const urlParams = new URLSearchParams(window.location.search);
 if (urlParams.get('settings') != null) {
     name.classList.remove('hidden');
     lunch.classList.remove('hidden');
+    nameField.value = storage.getUsername();
+    setCheckstates(storage.getNoontimes());
 }
 
 // functions
 function toggleClasses() {
-    name.classList.toggle('hidden') && lunch.classList.toggle('hidden');
-    easteregg();
+  if (nameField.value != null) {
+        name.classList.toggle('hidden') && lunch.classList.toggle('hidden');
+        easteregg();
+    } else {
+        nameField.style.borderColor = 'red';
+    }
 }
 
 function easteregg() {
@@ -51,7 +58,31 @@ function easteregg() {
 }
 
 function goToIndex() {
+    storage.setUsername(nameField.value);
+    storage.setNoontimes(getCheckstates());
     window.location.replace("index.html");
+}
+
+function getCheckstates() {
+    let checkstates = new Array();
+    let checkboxes = document.getElementsByClassName('ckBox');
+    for (let day = 0; day < 5; day++) {
+        let tmp = new Array();
+        for (let time = 0; time < 3; time++) {
+            tmp.push(checkboxes[3 * day + time].checked);
+        }
+        checkstates.push(tmp);
+    }
+    return (checkstates);
+}
+
+function setCheckstates(checkstates) {
+    let checkboxes = document.getElementsByClassName('ckBox');
+    for (let day = 0; day < 5; day++) {
+        for (let time = 0; time < 3; time++) {
+            checkboxes[3 * day + time].checked = checkstates[day][time];
+        }
+    }
 }
 
 // (un)ready for options menu
