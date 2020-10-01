@@ -25,6 +25,7 @@ document.addEventListener('deviceready', onDeviceReady, false);
 let menu = document.getElementById('menu');
 let menuBtn = document.getElementById('menuOpenBtn');
 let addBtn = document.getElementById('addBtn');
+let resultBtn = document.getElementById('resultBtn');
 let surveyBox = document.getElementById('survey-box');
 let checkboxes = new Array();
 
@@ -33,6 +34,7 @@ let checkboxes = new Array();
 menuBtn.addEventListener('click', showMenu);
 menu.addEventListener('click', hideMenu);
 addBtn.addEventListener('click', addLocation);
+resultBtn.addEventListener('click', openResultpage);
 
 // functions
 function onDeviceReady() {
@@ -96,6 +98,10 @@ function addLocation() {
         addCheckboxes([newLocationName]);
         storage.addLocation(newLocationName);
     }
+}
+
+function openResultpage() {
+    window.location.href = "result.html";
 }
 
 function boxChanged(e) {

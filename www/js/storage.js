@@ -39,6 +39,11 @@ function CStorage() {
         return data.options;
     };
 
+    this.getCacheVotes = function() {
+        let data = JSON.parse(this.storage.getItem('cache'));
+        return data.votings;
+    };
+
     // other
     this.addLocation = function(name) {
         let data = JSON.parse(this.storage.getItem('cache'));
