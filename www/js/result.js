@@ -3,8 +3,6 @@ function createTable() {
     let votes = storage.getCacheVotes();
     let options = storage.getCacheOptions();
     let table = document.getElementById('tab');
-    console.log(votes);
-    console.log(options);
 
     // table header
     let header = document.createElement('tr');

@@ -67,7 +67,9 @@ function showNotification() {
         text: 'Bitte stimme für ein Mittagessen ab.',
         trigger: {
             every: {
-                hour: 9, minute: 5, second: 0
+                hour: 9,
+                minute: 5,
+                second: 0
             }
         },
         smallIcon: 'img/logo.png',
@@ -168,4 +170,9 @@ function showVote() {
         resultBtn.style.display = "none";
         voteBtn.style.width = "100%";
     }
+}
+
+// reloads surveyBox
+function refreshSurveyBox(options) {
+    createSurveybox("Essen " + storage.getCacheDate(), options);
 }

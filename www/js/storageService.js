@@ -67,6 +67,7 @@ var storageService = (function() {
             let obj = mapSnapshotToObject(snapshot);
             readDataBase().then((data) => {
                     storage.updateCache(data);
+                    refreshSurveyBox(data.options);
                 })
                 .catch((error) => {
                     console.log(error);
