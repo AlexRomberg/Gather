@@ -32,9 +32,7 @@ function CStorage() {
     // offline cache
     // saves local cache
     this.updateCache = function(data) {
-        console.log("cache: ", data);
         if (data != undefined || "" || null) {
-            console.log("waring cach refreshed: ", data);
             this.storage.setItem('cache', JSON.stringify(data));
         }
     };

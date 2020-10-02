@@ -28,6 +28,7 @@ let addBtn = document.getElementById('addBtn');
 let resultBtn = document.getElementById('resultBtn');
 let voteBtn = document.getElementById('voteBtn');
 let surveyBox = document.getElementById('survey-box');
+let callback;
 let checkboxes = new Array();
 
 
@@ -45,17 +46,18 @@ function onDeviceReady() {
     if (!storage.usernameExists()) {
         window.location.replace("setup.html");
     }
+    callback = false;
+    setTimeout(cachTimeout, 4000);
     storageService.readDataBase()
         .then((data) => {
+            callback = true;
             storage.updateCache(data);
             createSurveybox("Essen " + storage.getCacheDate(), storage.getCacheOptions());
-            showVote();
         })
         // loads cached infos on error
         .catch((error) => {
             console.log(error);
             createSurveybox("Essen " + storage.getCacheDate(), storage.getCacheOptions());
-            showVote();
         });
     showNotification();
 }
@@ -89,12 +91,14 @@ function hideMenu(e) {
 
 // generates box containing checkboxes and title
 function createSurveybox(title, names) {
+    checkboxes = new Array();
     let h2 = document.createElement("h2");
     h2.innerText = title;
     surveyBox.innerHTML = "";
     surveyBox.classList.remove("loader");
     surveyBox.appendChild(h2);
     addCheckboxes(names);
+    showVote();
 }
 
 // generates checkboxes from list
@@ -175,4 +179,13 @@ function showVote() {
 // reloads surveyBox
 function refreshSurveyBox(options) {
     createSurveybox("Essen " + storage.getCacheDate(), options);
+}
+
+// displays cache if offline
+function cachTimeout() {
+    if (!callback) {
+        createSurveybox("Essen " + storage.getCacheDate(), storage.getCacheOptions());
+        showVote();
+        alert("Sie sind offline!");
+    }
 }
