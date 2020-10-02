@@ -67,7 +67,7 @@ function showNotification() {
         text: 'Bitte stimme für ein Mittagessen ab.',
         trigger: {
             every: {
-                hour: 9
+                hour: 9, minute: 5, second: 0
             }
         },
         smallIcon: 'img/logo.png',
