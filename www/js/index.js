@@ -57,16 +57,17 @@ function onDeviceReady() {
             createSurveybox("Essen " + storage.getCacheDate(), storage.getCacheOptions());
             showVote();
         });
+    showNotification();
 }
 
 // displays a repetitive notification
 function showNotification() {
     cordova.plugins.notification.local.schedule({
         title: 'Gather',
-        text: 'Please vote for a meal',
+        text: 'Bitte stimme für ein Mittagessen ab.',
         trigger: {
             every: {
-                hour: 6
+                hour: 9
             }
         },
         smallIcon: 'img/logo.png',
