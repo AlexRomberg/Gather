@@ -1,3 +1,5 @@
+/* --- table layout --- */
+
 table {
     border-collapse: collapse;
 }
@@ -8,6 +10,9 @@ th {
     text-align: left;
     padding: 8px;
 }
+
+
+/* --- colored contents --- */
 
 .positive {
     background-color: var(--positive-background);

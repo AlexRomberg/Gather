@@ -1,3 +1,4 @@
+// creates coloured table containing votingresults
 function createTable() {
     let votes = storage.getCacheVotes();
     let options = storage.getCacheOptions();
